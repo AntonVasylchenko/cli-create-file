@@ -1,58 +1,53 @@
-Shopify Project CLI
+# Shopify Project CLI
 
-Description
+## Description
 
-This CLI tool allows you to quickly create new folders for Shopify projects, initialize a Git repository, add necessary .gitignore and .shopifyignore files, and generate the shopify.theme.toml configuration file.
+This CLI tool allows you to quickly set up a new Shopify project by creating necessary folders and configuration files, initializing a Git repository, and ensuring all essential files are in place.
 
-Installation
+## Installation
 
+```sh
 npm install -g shopify-project-cli
+```
 
-Usage
+## Usage
 
 Run the command:
 
+```sh
 shopify-project
+```
 
 You will then be prompted to configure your new project:
 
-Create a new folder or use an existing one
+- **Create a new folder or use an existing one**
+- **Choose the folder location** (Desktop or another location)
+- **Initialize a Git repository**
+- **Add .gitignore and .shopifyignore**
+- **Create `shopify.theme.toml`**
+- **Enter the Shopify store name and theme ID**
 
-Choose the folder location (on Desktop or another location)
+## Features
 
-Initialize a Git repository
+✅ **Create a new folder or use an existing one**  
+📂 **Automatically generate necessary files** (`.gitignore`, `.shopifyignore`, `shopify.theme.toml`)  
+🛠 **Initialize a Git repository**  
+🚀 **User-friendly interactive interface**  
 
-Add .gitignore and .shopifyignore
+## Example Usage
 
-Create shopify.theme.toml
-
-Enter the Shopify store name and theme ID
-
-Features
-
-🗂 Create a new folder or use an existing one
-
-📂 Automatically generate necessary files (.gitignore, .shopifyignore, shopify.theme.toml)
-
-🛠 Initialize a Git repository
-
-🚀 User-friendly interactive interface
-
-Example Usage
-
-shopify-project-cli
+```sh
+shopify-project
+```
 
 Then follow the prompts to create your Shopify project!
 
-Requirements
+## Requirements
 
-Node.js >=16
+- **Node.js** >=16
+- **npm** >=7
+- **Installed Shopify CLI**
 
-npm >=7
+## License
 
-Installed Shopify CLI
-
-License
-
-MIT License.
-
+This project is licensed under the MIT License.
