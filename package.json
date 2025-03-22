@@ -1,0 +1,19 @@
+{
+  "name": "theme-starter-cli",
+  "version": "0.0.2",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "theme-starter": "bin/index.js"
+  },
+  "scripts": {
+    "start": "node bin/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "description": "",
+  "dependencies": {
+    "inquirer": "^12.5.0"
+  }
+}
