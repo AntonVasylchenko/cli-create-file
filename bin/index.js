@@ -66,7 +66,7 @@ async function creareWorkFolder() {
             {
                 type: "list",
                 name: "createIgnoreFiles",
-                message: "Create ignore files(.gitignore and .shopifyignore)?",
+                message: "Create ignore files (.gitignore and .shopifyignore)?",
                 choices: ["Yes", "No"],
                 default: "Yes",
             },
@@ -76,6 +76,14 @@ async function creareWorkFolder() {
                 message: "Create shopify.theme.toml file?",
                 choices: ["Yes", "No"],
                 default: "Yes",
+            },
+            {
+                type: "list",
+                name: "addTomlInSeparateFolder",
+                message: "Add shopify.theme.toml in a separate folder?",
+                choices: ["Yes", "No"],
+                when: (answers) => answers.createShopifyToml === "Yes",
+                default: "No",
             },
             {
                 type: "input",
@@ -94,6 +102,7 @@ async function creareWorkFolder() {
                 validate: (input) => input.trim() !== "" || "Theme ID cannot be empty!",
             },
         ]);
+
 
         const basePath = createBasePath(answers);
         const folderPath = path.join(basePath, answers.folderName);
@@ -114,7 +123,8 @@ async function creareWorkFolder() {
         }
 
         if (answers.createShopifyToml === "Yes") {
-            await createTomlFile(`${folderPath}/theme`, answers)
+            const path = answers.addTomlInSeparateFolder === "Yes" ? `${folderPath}/theme` : folderPath;
+            await createTomlFile(path, answers)
         }
 
         if (answers.initGit === "Yes") {

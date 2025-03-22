@@ -1,6 +1,6 @@
 {
-  "name": "theme-starter-cli",
-  "version": "2.0.0",
+  "name": "theme-starter",
+  "version": "1.0.1",
   "main": "index.js",
   "type": "module",
   "bin": {
@@ -9,10 +9,21 @@
   "scripts": {
     "start": "node bin/index.js"
   },
-  "author": "",
+  "author": "AntonVasylchenko",
   "license": "ISC",
-  "keywords": [],
-  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AntonVasylchenko/cli-create-file"
+  },
+  "homepage": "https://github.com/AntonVasylchenko/cli-create-file/blob/main/README.md",
+  "keywords": [
+    "shopify",
+    "cli",
+    "theme",
+    "starter",
+    "automation"
+  ],
+ "description": "A CLI tool for initializing and configuring Shopify theme projects quickly and efficiently.",
   "dependencies": {
     "inquirer": "^12.5.0"
   }
