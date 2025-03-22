@@ -111,25 +111,29 @@ async function creareWorkFolder() {
             throw new Error("Path does not exist");
         }
 
-        if (fs.existsSync(folderPath)) {
+        if (answers.action !== "Use an existing folder" && fs.existsSync(folderPath)) {
             throw new Error("Folder already exists");
         }
 
-        await createFolder(folderPath)
-        await createFolder(`${folderPath}/theme`)
+        await createFolder(folderPath);
+
+        if (answers.addTomlInSeparateFolder === "Yes") {
+            await createFolder(`${folderPath}/theme`);
+        }
 
         if (answers.createIgnoreFiles === "Yes") {
-            await createIgnoreFiles(folderPath)
+            await createIgnoreFiles(folderPath);
         }
 
         if (answers.createShopifyToml === "Yes") {
-            const path = answers.addTomlInSeparateFolder === "Yes" ? `${folderPath}/theme` : folderPath;
-            await createTomlFile(path, answers)
+            const tomlPath = answers.addTomlInSeparateFolder === "Yes" ? `${folderPath}/theme` : folderPath;
+            await createTomlFile(tomlPath, answers);
         }
 
         if (answers.initGit === "Yes") {
-            await initGitRepo(folderPath)
+            await initGitRepo(folderPath);
         }
+
 
     } catch (error) {
         console.log(error)
