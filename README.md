@@ -7,7 +7,7 @@ This CLI tool allows you to quickly set up a new Shopify project by creating nec
 ## Installation
 
 ```sh
-npm install -g shopify-project-cli
+npm install -g theme-starter-cli
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ npm install -g shopify-project-cli
 Run the command:
 
 ```sh
-shopify-project
+theme-starter
 ```
 
 You will then be prompted to configure your new project:
@@ -37,7 +37,7 @@ You will then be prompted to configure your new project:
 ## Example Usage
 
 ```sh
-shopify-project
+theme-starter
 ```
 
 Then follow the prompts to create your Shopify project!
