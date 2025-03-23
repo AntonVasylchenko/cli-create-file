@@ -13,7 +13,7 @@ store = "${shopName}"
 theme = "${themeId}"
 
 [environments.env2]
-store = ""
+store = "${shopName}"
     `.trim();
 
     try {

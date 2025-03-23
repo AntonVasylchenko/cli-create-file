@@ -10,15 +10,18 @@ dist/
 .shopifyignore
 package.json
 shopify.theme.toml
+.shopify
     `.trim();
 
     const shopifyIgnoreContent = `
 node_modules/
 dist/
+.env
 .DS_Store
-.gitignore
+.shopifyignore
 package.json
 shopify.theme.toml
+.shopify
     `.trim();
 
     try {
