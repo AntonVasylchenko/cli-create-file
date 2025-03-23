@@ -3,10 +3,11 @@ import path from "node:path";
 
 export async function createPackageJson(folderPath) {
     const packageJsonPath = path.join(folderPath, "package.json");
+    const validPackageName = path.basename(folderPath).toLowerCase().replace(/[^a-z0-9-._~]/g, "-");
 
     // Структура package.json
     const packageJsonContent = {
-        name: path.basename(folderPath),
+        name: validPackageName,
         version: "1.0.0",
         scripts: {
             logout: "shopify auth logout",

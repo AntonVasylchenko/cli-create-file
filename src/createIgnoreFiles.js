@@ -9,6 +9,7 @@ dist/
 .DS_Store
 .shopifyignore
 package.json
+shopify.theme.toml
     `.trim();
 
     const shopifyIgnoreContent = `
@@ -17,6 +18,7 @@ dist/
 .DS_Store
 .gitignore
 package.json
+shopify.theme.toml
     `.trim();
 
     try {
