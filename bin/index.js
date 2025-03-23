@@ -8,6 +8,7 @@ import { createFolder } from "../src/createFolder.js";
 import { createBasePath } from "../src/utils.js";
 import { createTomlFile } from "../src/createTomlFile.js";
 import { initGitRepo } from "../src/initGitRepo.js";
+import { createPackageJson } from "../src/createPackageJson.js";
 
 async function creareWorkFolder() {
     try {
@@ -101,6 +102,14 @@ async function creareWorkFolder() {
                 default: "123456789",
                 validate: (input) => input.trim() !== "" || "Theme ID cannot be empty!",
             },
+            {
+                type: "list",
+                name: "createPackageJson",
+                message: "Create package.json with Shopify commands?",
+                choices: ["Yes", "No"],
+                when: (answers) => answers.addTomlInSeparateFolder === "No" && answers.createShopifyToml === "Yes",
+                default: "Yes",
+            }
         ]);
 
 
@@ -134,6 +143,9 @@ async function creareWorkFolder() {
             await initGitRepo(folderPath);
         }
 
+        if (answers.createPackageJson === "Yes" && answers.createShopifyToml == "Yes" && answers.addTomlInSeparateFolder === "No" ) {
+            await createPackageJson(folderPath);
+        }
 
     } catch (error) {
         console.log(error)

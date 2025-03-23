@@ -8,6 +8,7 @@ dist/
 .env
 .DS_Store
 .shopifyignore
+package.json
     `.trim();
 
     const shopifyIgnoreContent = `
@@ -15,6 +16,7 @@ node_modules/
 dist/
 .DS_Store
 .gitignore
+package.json
     `.trim();
 
     try {
