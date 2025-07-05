@@ -1,7 +1,7 @@
 import { writeFile } from "fs/promises";
 import { join } from "path";
 
-export async function createTomlFile(folderPath, { shopName, themeId }) {
+export default async function createTomlFile(folderPath, { shopName, themeId }) {
     if (!shopName || !themeId) {
         console.error("Error: 'shopName' and 'themeId' parameters are required.");
         return;
@@ -18,7 +18,6 @@ store = "${shopName}"
 
     try {
         await writeFile(join(folderPath, "shopify.theme.toml"), fileContent);
-        console.log("shopify.theme.toml file created successfully.");
     } catch (err) {
         console.error("Error creating shopify.theme.toml:", err);
     }
