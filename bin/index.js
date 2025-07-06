@@ -67,8 +67,8 @@ async function creareWorkFolder() {
       },
       {
         type: "list",
-        name: "addTomlInSeparateFolder",
-        message: "Place shopify.theme.toml inside a separate folder?",
+        name: "addSeparateFolder",
+        message: "Create a separate folder for the theme?",
         choices: ["Yes", "No"],
         when: (answers) => answers.createShopifyToml === "Yes",
         default: "No",
@@ -95,9 +95,7 @@ async function creareWorkFolder() {
         name: "createPackageJson",
         message: "Add package.json with Shopify CLI scripts?",
         choices: ["Yes", "No"],
-        when: (answers) =>
-          answers.addTomlInSeparateFolder === "No" &&
-          answers.createShopifyToml === "Yes",
+        when: (answers) => answers.createShopifyToml === "Yes",
         default: "Yes",
       },
     ]);
@@ -118,7 +116,7 @@ async function creareWorkFolder() {
 
     await createFolder(folderPath);
 
-    if (answers.addTomlInSeparateFolder === "Yes") {
+    if (answers.addSeparateFolder === "Yes") {
       await createFolder(`${folderPath}/theme`);
     }
 
@@ -135,17 +133,12 @@ async function creareWorkFolder() {
     }
 
     if (answers.createShopifyToml === "Yes") {
-      const tomlPath =
-        answers.addTomlInSeparateFolder === "Yes"
-          ? `${folderPath}/theme`
-          : folderPath;
-      await createTomlFile(tomlPath, answers);
+      await createTomlFile(folderPath, answers);
     }
 
     if (
       answers.createPackageJson === "Yes" &&
-      answers.createShopifyToml == "Yes" &&
-      answers.addTomlInSeparateFolder === "No"
+      answers.createShopifyToml == "Yes"
     ) {
       await createPackageJson(folderPath);
     }
