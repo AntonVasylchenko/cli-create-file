@@ -17,17 +17,18 @@ export default async function createVSCodeConfig(targetDir = process.cwd()) {
     const settingsContent = {
       "editor.formatOnSave": false,
       "[javascript]": {
-        "editor.formatOnSave": true,
+        "editor.formatOnSave": false,
         "editor.defaultFormatter": "esbenp.prettier-vscode",
       },
       "[css]": {
-        "editor.formatOnSave": true,
+        "editor.formatOnSave": false,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
       },
       "[liquid]": {
         "editor.defaultFormatter": "Shopify.theme-check-vscode",
-        "editor.formatOnSave": true,
+        "editor.formatOnSave": false,
       },
-      "themeCheck.checkOnSave": true,
+      "themeCheck.checkOnSave": false,
     };
     await fs.writeFile(
       path.join(vscodePath, "settings.json"),

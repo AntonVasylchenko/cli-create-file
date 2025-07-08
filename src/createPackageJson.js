@@ -9,10 +9,11 @@ export default async function createPackageJson(folderPath) {
         name: validPackageName,
         version: "1.0.0",
         scripts: {
-            logout: "shopify auth logout",
-            pull: "shopify theme pull -e env1",
-            push: "shopify theme push -e env1",
-            dev: "shopify theme dev -e env2"
+            "logout": "shopify auth logout",
+            "pull": "shopify theme pull -e env1",
+            "pull:local": "shopify theme pull env2",
+            "push": "shopify theme push -e env1",
+            "dev": "shopify theme dev -e env2",
         }
     };
 
