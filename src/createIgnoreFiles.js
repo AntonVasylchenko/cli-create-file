@@ -3,8 +3,8 @@ import { join } from "path";
 
 export default async function createIgnoreFiles(folderPath) {
     const fileContent = `
-node_modules/
-dist/
+node_modules/*
+dist/*
 .env
 .DS_Store
 .shopifyignore
